@@ -1,0 +1,73 @@
+ /* Full-screen background */
+ body, html {
+  height: 100%;
+  margin: 0;
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+/* Background image */
+body {
+  background-image: url('../images/child-children-play-fun.jpg'); /* Replace with your image URL */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Centered card */
+.card {
+  background: rgba(255, 255, 255, 0.7); /* Slightly transparent */
+  backdrop-filter: blur(10px); /* Blurred background */
+  border-radius: 15px;
+  padding: 30px;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Shadow for emphasis */
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+p {
+  font-size: 18px;
+  margin-bottom: 30px;
+  color: #555;
+}
+
+/* Button styling */
+.btn {
+  padding: 10px 20px;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #0d47a1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  h1 {
+      font-size: 20px;
+  }
+
+  p {
+      font-size: 14px;
+  }
+
+  .btn {
+      font-size: 14px;
+  }
+}

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="Add Meeting"
+        android:id="@+id/addmeeting"
+
+        android:icon="@drawable/addmeet"
+        android:iconTint="@color/dark_green"/>
+    <item
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="Meetings List"
+        android:id="@+id/meetinglist"
+        android:icon="@drawable/listmeet"
+
+        android:iconTint="@color/dark_green"
+        />
+</menu>

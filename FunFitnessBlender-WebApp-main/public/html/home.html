@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enquiry / Registration Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/home.css">
+</head>
+<body>
+
+    <div class="form">
+        
+        <div class="title-div">
+               
+            <img src="../images/app-icon.png" alt="Success">
+            <p class="whitebg">Loaded with Fun and Fitness....</p>
+            
+        </div>
+
+        <!-- First and Last Name -->
+        <div class="name-div">
+            <p class="required" style="text-align: center;">* Marked fields are mandatory to fill </p>
+            <div class="input-container">
+                
+                <div class="input-div">
+                    <label class="label">First Name <span class="required">*</span></label>
+                    <input type="text" id="firstName" class="form-control" placeholder="Enter child/applicant first name" required>
+                </div>
+                <div class="input-div">
+                    <label>Last Name <span class="required">*</span></label>
+                    <input type="text" id="lastName" class="form-control" placeholder="Enter child/applicant last name" required>
+                </div>
+            </div>
+        </div>
+
+        <!-- Date, Birth Date and Age -->
+        <div class="date-div">
+            <div class="input-container">
+                <div class="date-input-div">
+                    <label>Enquiry/Registration date<span class="required">*</span></label>
+                    <input type="date" class="form-control" placeholder="Date" id="date" required>
+                </div>
+                <div class="birthdate-input-div">
+                    <label>BirthDate</label>
+                    <input type="date" id="birthDate" class="form-control" placeholder="Child's BirthDate">  <!-- Corrected ID -->
+                </div>
+                <div class="age-input-div">
+                    <label>Age <span class="required">*</span></label>
+                    <input type="number" class="form-control" id="age" placeholder="Age" required>
+                </div>
+            </div>
+        </div>
+
+        <!-- Email and Phone Number -->
+        <div class="email-div">
+            <div class="input-container">
+                <div class="input-div">
+                    <label>Email</label>
+                    <input type="email" id="email" class="form-control" placeholder="Email" >
+                </div>
+                <div class="input-div">
+                    <label>Phone Number <span class="required">*</span></label>
+                    <input type="tel" id="phone" class="form-control" placeholder="Phone Number" maxlength="10">
+                </div>
+            </div>
+        </div>
+
+       
+        <!-- Program and Area (Added Area Input) -->
+        <div class="program-div">
+            <div class="input-container">
+                <div class="input-div">
+                    <label>Program <span class="required">*</span></label>
+                    <select id="program" class="form-control" name="program" required>
+                        <option value="">Select Program</option>
+                        <option value="gymnastic">Gymnastic</option>
+                        <option value="adult fitness">Adult fitness</option>
+                        <option value="autism fitness">Autism fitness</option>
+                        <option value="personal training child">Personal Training (child)</option>
+                        <option value="Personal Training adult">Personal Training (adult)</option>
+                        <option value="Nanhe fitness">Nanhe fitness</option>
+                        <option value="Birthday Party">Birthday Party</option>
+                        <option value="Protein Powder">Protein Powder</option>
+                        <option value="Teacher Training">Teacher Training</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="input-div">
+                    <label>Address <span class="required">*</span> </label>
+                    <select id="area" class="form-control" name="area" required>
+                        <option value="">Select Address</option>
+                        <option value="Bhosalenagar">Bhosalenagar</option>
+                        <option value="Model Colony">Model Colony</option>
+                        <option value="Range hills">Range hills</option>
+                        <option value="Sb Road">Sb Road</option>
+                        <option value="Aundh">Aundh</option>
+                        <option value="Baner">Baner</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Referred by and Referred Person Name -->
+        <div class="referred-div">
+            <div class="input-container">
+                <div class="input-div">
+                    <label>Referred by </label>
+                       <select id="referredBy" class="form-control" name="referredBy">
+                        <option value=" ">Reffered By</option>
+                        <option value="Google">Google</option>
+                        <option value="Person">Person</option>
+                        <option value="Flyer">Flyer</option>
+                        <option value="StreetBoard">StreetBoard</option>
+                        <option value="Instagram Ad">Instagram Ad</option>
+                    </select>
+                </div>
+                <div class="input-div">
+                    <label>Referred Person Name</label>
+                    <input type="text" id="referredPersonName" class="form-control" placeholder="Referred Person Name">
+                </div>
+            </div>
+        </div>
+
+        <!-- Parent's First and Last Name -->
+        <div class="parent-div">
+                <div class="input-div2">
+                    <label>Parent's Name</label>
+                    <input type="text" id="parentFirstName" class="form-control" placeholder="Parent's Name">
+                </div>
+        </div>
+
+        <!-- Status and Interest -->
+        <div class="status-div" hidden>
+            <div class="input-container">
+                <div class="input-div">
+                    <label>Status <span class="required">*</span></label>
+                    <input type="text" id="status" value="Hot enquiry" readonly>
+                </div>
+                <div class="input-div">
+                    <label>Interest <span class="required">*</span></label>
+                    <input type="text" id="interest" value="New Enquiry" readonly>
+                </div>
+            </div>
+        </div>
+        <!-- Save Button -->
+    <div class="submit-div">
+        <button class="btn" id="submitButton" onclick="saveClientData()">Submit</button>
+    </div>
+    </div>
+    
+  
+ <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+ <script src="../js/dbCredentials.js"></script>
+ <script src="../js/dbConfig.js"></script>
+ <script src="../js/script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.FunFitnessBlender"
+        tools:targetApi="31">
+        <activity
+            android:name=".activity.IncomeReportActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.AdminActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.JoinedMemberListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.EditSessionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.SessionDetails"
+            android:exported="false" />
+        <activity
+            android:name=".activity.AddSessionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.SessionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.EditTransactionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MeettingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.DetailedTransactionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.FeesDueActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.EditClientDetails"
+            android:exported="false" />
+        <activity
+            android:name=".activity.AllTransactionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.ReportsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.SaveTransactionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.AddTransactionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.AddProgramActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.AddAreaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.DetailedDataActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.EnquiryListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.AddEnquiryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.SplashScreenActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

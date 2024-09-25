@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "629105466462",
+    "firebase_url": "https://funfitnessblender-e2765-default-rtdb.firebaseio.com",
+    "project_id": "funfitnessblender-e2765",
+    "storage_bucket": "funfitnessblender-e2765.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:629105466462:android:69404d77c23bb1b45628cf",
+        "android_client_info": {
+          "package_name": "com.example.funfitnessblender"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAEF4pAC1GsnGeB05z5zgJgMaUedkRnzgQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+
+    <color name="navy_blue">#352e4f</color>
+    <color name="purple">#8c72de</color>
+    <color name="blue">#45beb9</color>
+    <color name="green">#34d287</color>
+    <color name="red">#f55150</color>
+    <color name="gray">#e9e7f2</color>
+    <color name="orange">#fed442</color>
+    <color name="lavendar">#8692f7</color>
+    <color name="lightGrey">#DEDEDE</color>
+
+
+
+
+    <color name="dark_blue">#37449E</color>
+    <color name="light_blue">#4272F4</color>
+
+
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+
+
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#0B0A24</color>
+    <color name="colorAccent">#FE0049</color>
+
+
+
+    <color name="background">#0B0A24</color>
+    <color name="card_background">#11122A</color>
+
+    <color name="stepper">#1C1D34</color>
+    <color name="tint">#8D8E99</color>
+
+    <color name="dark_purple">#521C98</color>
+    <color name="light_purple">#F1EBFD</color>
+    <color name="white_background">#FAF9F6</color>
+
+
+    <color name="dark_green">#209E39</color>
+    <color name="light_green">#C8EFD6</color>
+
+
+
+
+
+</resources>

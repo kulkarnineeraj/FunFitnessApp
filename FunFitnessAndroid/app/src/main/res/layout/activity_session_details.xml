@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_background"
+    tools:context=".activity.SessionDetails">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/top_background" />
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="28dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="16dp">
+                    <ImageView
+                        android:id="@+id/backBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        app:srcCompat="@drawable/back1"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Personal Sessions"
+                        android:textColor="@color/white"
+                        android:textSize="24sp"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginStart="12dp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toEndOf="@+id/backBtn"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+                <LinearLayout
+                    android:id="@+id/linearLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginEnd="32dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/background_banner"
+                    android:elevation="4dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/imageView">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="20dp"
+                            android:layout_marginTop="13dp"
+                            android:layout_marginEnd="16dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/sim"
+                            />
+
+                        <TextView
+                            android:id="@+id/tvProgram"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="11dp"
+                            android:layout_marginTop="28dp"
+                            android:text="Session name"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/white"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            />
+
+                        <TextView
+                            android:id="@+id/tvCount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="11dp"
+                            android:layout_marginTop="2dp"
+                            android:text="Sessions done:"
+                            android:textSize="17sp"
+
+                            android:textColor="@color/white"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tvProgram"
+                            />
+
+                        <TextView
+                            android:id="@+id/tvSessionCount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="7dp"
+                            android:layout_marginTop="2dp"
+                            android:text="0"
+                            android:textSize="17sp"
+
+                            android:textColor="@color/white"
+                            app:layout_constraintStart_toEndOf="@id/tvCount"
+                            app:layout_constraintTop_toBottomOf="@id/tvProgram"
+                            />
+
+
+
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+
+                                >
+
+                                <TextView
+                                    android:id="@+id/name"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="11dp"
+                                    android:layout_marginBottom="2dp"
+                                    android:layout_marginTop="4dp"
+                                    android:text="Client name"
+                                    android:textSize="17sp"
+                                    android:textColor="@color/white"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintBottom_toTopOf="@id/tvName"
+                                    />
+
+                                <TextView
+                                    android:id="@id/tvName"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="11dp"
+                                    android:layout_marginBottom="8dp"
+                                    android:text="Client Name"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/white"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    />
+
+                                <androidx.appcompat.widget.AppCompatButton
+                                    android:id="@+id/btnAdd"
+                                    style="@android:style/Widget.Button"
+                                    android:layout_width="90dp"
+                                    android:layout_height="30dp"
+                                    android:layout_gravity="center"
+
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    android:background="@drawable/background_top_menu"
+                                    android:gravity="center"
+                                    android:text="Add Session"
+                                    android:textColor="@color/dark_green"
+                                    android:textSize="13sp"
+                                    android:textStyle="bold"
+                                    android:elevation="4dp"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    android:layout_marginEnd="10dp"
+                                    />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearLayoutList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="22dp"
+                    android:layout_marginEnd="16dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toBottomOf="@id/linearLayout"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    >
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        >
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="2dp"
+                        android:text="Sr.No"
+                        android:textSize="17sp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:textColor="@color/black"
+                        app:layout_constraintStart_toStartOf="parent"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/tvDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginTop="2dp"
+                        android:textAlignment="center"
+                        android:text="Date"
+                        android:textSize="17sp"
+                        android:layout_marginEnd="59dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+
+                        android:textColor="@color/black"
+
+                        />
+
+
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginTop="2dp"
+
+                        android:text="Status"
+                        android:textSize="17sp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginEnd="20dp"
+
+                        android:textColor="@color/black"
+
+                        />
+                        <View
+                            android:id="@+id/viewLine"
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+
+                            android:background="@color/dark_green"
+                            android:layout_marginTop="1dp"
+                            app:layout_constraintTop_toBottomOf="@id/textView3"
+                            />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </LinearLayout>
+
+
+                <ListView
+                    android:id="@+id/listviewSessions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+
+                    android:layout_marginTop="12dp"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="10.0sp"
+                    android:scrollbars="vertical"
+                    tools:listitem="@layout/list_item_session"
+                    app:layout_constraintTop_toBottomOf="@id/linearLayoutList"/>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+        </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
