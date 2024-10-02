@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/dark_green"
-    tools:context=".activity.DetailedTransactionActivity">
+    tools:context=".activity.IncomeReportActivity">
 
 
     <ScrollView
@@ -86,7 +86,7 @@
                             android:layout_height="330dp"
 
                             android:layout_marginTop="10dp"
-                            android:layout_marginVertical="20dp"
+
                             />
 
                         <!-- Table Layout -->

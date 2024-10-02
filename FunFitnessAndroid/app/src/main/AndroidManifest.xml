@@ -13,6 +13,21 @@
         android:theme="@style/Theme.FunFitnessBlender"
         tools:targetApi="31">
         <activity
+            android:name=".activity.EditMarketingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.EditMeetingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DetailedMarketingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DetailedMeetingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MeetingDataActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.IncomeReportActivity"
             android:exported="false" />
         <activity
@@ -52,7 +67,7 @@
             android:name=".activity.AllTransactionActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.ReportsActivity"
+            android:name=".activity.MarketingActivity"
             android:exported="false" />
         <activity
             android:name=".activity.SaveTransactionActivity"

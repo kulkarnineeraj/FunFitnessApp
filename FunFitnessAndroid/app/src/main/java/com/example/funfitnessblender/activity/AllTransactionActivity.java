@@ -206,17 +206,24 @@ public class AllTransactionActivity extends AppCompatActivity {
                     if (transaction != null) {
                         transactionsList.add(transaction);
 
-                        // Calculate the total amounts
-                        double amount = Double.parseDouble(transaction.getReceivedAmount());
+                        // Check if receivedAmount is not empty or null
+                        String receivedAmountStr = transaction.getReceivedAmount();
+                        if (receivedAmountStr != null && !receivedAmountStr.isEmpty()) {
+                            try {
+                                double amount = Double.parseDouble(receivedAmountStr);
 
-                        // Add to the overall total
-                        totalAmount += amount;
+                                // Add to the overall total
+                                totalAmount += amount;
 
-                        // Add to Cash or Online total based on payment mode
-                        if ("Cash".equalsIgnoreCase(transaction.getPaymentMode())) {
-                            totalCash += amount;
-                        } else if ("Online".equalsIgnoreCase(transaction.getPaymentMode())) {
-                            totalOnline += amount;
+                                // Add to Cash or Online total based on payment mode
+                                if ("Cash".equalsIgnoreCase(transaction.getPaymentMode())) {
+                                    totalCash += amount;
+                                } else if ("Online".equalsIgnoreCase(transaction.getPaymentMode())) {
+                                    totalOnline += amount;
+                                }
+                            } catch (NumberFormatException e) {
+                                e.printStackTrace(); // Log the error for debugging
+                            }
                         }
                     }
                 }
@@ -244,7 +251,6 @@ public class AllTransactionActivity extends AppCompatActivity {
         });
     }
 
-
     private void filterTransactionsByDate() {
         filteredTransactionsList.clear();
 
@@ -269,17 +275,24 @@ public class AllTransactionActivity extends AppCompatActivity {
 
                     filteredTransactionsList.add(transaction);
 
-                    // Calculate the total amounts
-                    double amount = Double.parseDouble(transaction.getReceivedAmount());
+                    // Check if receivedAmount is not empty or null
+                    String receivedAmountStr = transaction.getReceivedAmount();
+                    if (receivedAmountStr != null && !receivedAmountStr.isEmpty()) {
+                        try {
+                            double amount = Double.parseDouble(receivedAmountStr);
 
-                    // Add to the overall total
-                    totalAmount += amount;
+                            // Add to the overall total
+                            totalAmount += amount;
 
-                    // Add to Cash or Online total based on payment mode
-                    if ("Cash".equalsIgnoreCase(transaction.getPaymentMode())) {
-                        totalCash += amount;
-                    } else if ("Online".equalsIgnoreCase(transaction.getPaymentMode())) {
-                        totalOnline += amount;
+                            // Add to Cash or Online total based on payment mode
+                            if ("Cash".equalsIgnoreCase(transaction.getPaymentMode())) {
+                                totalCash += amount;
+                            } else if ("Online".equalsIgnoreCase(transaction.getPaymentMode())) {
+                                totalOnline += amount;
+                            }
+                        } catch (NumberFormatException e) {
+                            e.printStackTrace(); // Log the error for debugging
+                        }
                     }
                 }
             }
@@ -300,6 +313,7 @@ public class AllTransactionActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+
 
 
     private void searchClients(String searchText) {

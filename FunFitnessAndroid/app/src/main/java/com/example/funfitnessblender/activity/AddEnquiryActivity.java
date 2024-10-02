@@ -214,23 +214,10 @@ public class AddEnquiryActivity extends AppCompatActivity {
     private void saveClient() {
         String firstName = etFirstName.getText().toString().trim();
         String lastName = etLastName.getText().toString().trim();
-        //String date = etDate.getText().toString().trim();
-        // Convert the date to a suitable format for sorting
-        SimpleDateFormat inputFormat = new SimpleDateFormat("dd/MM/yyyy");
-        SimpleDateFormat outputFormat = new SimpleDateFormat("yyyy-MM-dd");
-        String formattedDate = "";
-        String formattedBirthDate = "";
 
-        try {
-            Date date = inputFormat.parse(etDate.getText().toString().trim());
-            Date bdate = inputFormat.parse(etBirthDate.getText().toString().trim());
-            formattedDate = outputFormat.format(date);
-            formattedBirthDate = outputFormat.format(bdate);
-        } catch (ParseException e) {
-            e.printStackTrace();
-            Toast.makeText(this, "Please Select Proper Date", Toast.LENGTH_SHORT).show();
-            return;
-        }
+
+        String date = etDate.getText().toString().trim();
+        String bdate = etBirthDate.getText().toString().trim();
         String age = etAge.getText().toString().trim();
         String email = etEmail.getText().toString().trim();
         String address = etAddress.getText().toString().trim();
@@ -246,17 +233,17 @@ public class AddEnquiryActivity extends AppCompatActivity {
         String referralName = etReferralName.getText().toString().trim();
 
         if (firstName.isEmpty() || lastName.isEmpty() ||  age.isEmpty() ||
-                phone.isEmpty() ||    program.isEmpty()  ) {
+                phone.isEmpty() ||    program.isEmpty() || interest.isEmpty() ) {
             Toast.makeText(this, "Please fill all the (*) fields ", Toast.LENGTH_SHORT).show();
             return;
         }
 
         String id = clientDatabaseReference.push().getKey();
-        Client client = new Client(id, firstName, lastName, formattedDate, age, email, address, parentFirstName, formattedBirthDate, phone,amount, status, program, area, interest, referral, referralName);
+        Client client = new Client(id, firstName, lastName, date, age, email, address, parentFirstName, bdate, phone,amount, status, program, area, interest, referral, referralName);
         clientDatabaseReference.child(id).setValue(client).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 Toast.makeText(AddEnquiryActivity.this, "Client saved successfully", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(AddEnquiryActivity.this, EnquiryListActivity.class);
+                Intent intent = new Intent(AddEnquiryActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
             } else {
@@ -273,7 +260,7 @@ public class AddEnquiryActivity extends AppCompatActivity {
 
         DatePickerDialog datePickerDialog = new DatePickerDialog(AddEnquiryActivity.this,
                 (view, year1, monthOfYear, dayOfMonth) -> {
-                    String selectedDate = dayOfMonth + "/" + (monthOfYear + 1) + "/" + year1;
+                    String selectedDate = String.format("%d-%02d-%02d", year1, (monthOfYear + 1), dayOfMonth);
                     etDate.setText(selectedDate);
                 }, year, month, day);
         datePickerDialog.show();
@@ -287,7 +274,7 @@ public class AddEnquiryActivity extends AppCompatActivity {
 
         DatePickerDialog datePickerDialog = new DatePickerDialog(AddEnquiryActivity.this,
                 (view, year1, monthOfYear, dayOfMonth) -> {
-                    String selectedDate = dayOfMonth + "/" + (monthOfYear + 1) + "/" + year1;
+                    String selectedDate = String.format("%d-%02d-%02d", year1, (monthOfYear + 1), dayOfMonth);
                     etBirthDate.setText(selectedDate);
                 }, year, month, day);
         datePickerDialog.show();

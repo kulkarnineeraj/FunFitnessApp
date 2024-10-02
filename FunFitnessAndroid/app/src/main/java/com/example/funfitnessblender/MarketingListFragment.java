@@ -14,8 +14,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 
-import com.example.funfitnessblender.adapters.MeetingAdapter; // Use the MeetingAdapter instead
-import com.example.funfitnessblender.models.Meeting; // Use the Meeting model instead
+import com.example.funfitnessblender.adapters.MarketingAdapter;
+import com.example.funfitnessblender.models.Marketing;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -27,40 +27,40 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class MeettingListFragment extends Fragment {
+public class MarketingListFragment extends Fragment {
 
     private ImageView backBtn;
     private EditText etSearch;
     private ListView listView;
-    private MeetingAdapter adapter;
-    private List<Meeting> meetingList, filteredList;
+    private MarketingAdapter adapter;
+    private List<Marketing> marketingList, filteredList;
     private DatabaseReference databaseReference;
 
-    public MeettingListFragment() {
+    public MarketingListFragment() {
         // Required empty public constructor
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_meetting_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_marketing_list, container, false);
 
-        listView = view.findViewById(R.id.listview);
+        listView = view.findViewById(R.id.marketingList);
         backBtn = view.findViewById(R.id.backBtn);
         etSearch = view.findViewById(R.id.etSearch);
 
         // Initialize Firebase Database reference
-        databaseReference = FirebaseDatabase.getInstance().getReference("meetings");
+        databaseReference = FirebaseDatabase.getInstance().getReference("marketing");
 
         // Initialize the lists and adapter
-        meetingList = new ArrayList<>();
+        marketingList = new ArrayList<>();
         filteredList = new ArrayList<>();
-        adapter = new MeetingAdapter(getContext(), filteredList);
+        adapter = new MarketingAdapter(getContext(), filteredList);
 
         listView.setAdapter(adapter);
 
         // Load data from Firebase
-        loadMeetingData();
+        loadMarketingData();
 
         // Back button functionality
         backBtn.setOnClickListener(v -> {
@@ -79,14 +79,14 @@ public class MeettingListFragment extends Fragment {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 // Filter the list when the search input changes
-                filterMeetingList(s.toString());
+                filterMarketingList(s.toString());
             }
 
             @Override
             public void afterTextChanged(Editable s) {
                 if (s.toString().isEmpty()) {
                     // If search input is cleared, reload the original data
-                    filterMeetingList("");
+                    filterMarketingList("");
                 }
             }
         });
@@ -94,30 +94,30 @@ public class MeettingListFragment extends Fragment {
         return view;
     }
 
-    private void loadMeetingData() {
+    private void loadMarketingData() {
         if (databaseReference != null) {
             databaseReference.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    meetingList.clear();  // Clear the list before loading new data
+                    marketingList.clear();  // Clear the list before loading new data
                     for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                        Meeting meeting = snapshot.getValue(Meeting.class);
-                        if (meeting != null) {
-                            meetingList.add(meeting);
+                        Marketing marketing = snapshot.getValue(Marketing.class);
+                        if (marketing != null) {
+                            marketingList.add(marketing);
                         }
                     }
 
-                    // Sort the list by date (latest meeting at the top)
-                    Collections.sort(meetingList, new Comparator<Meeting>() {
+                    // Sort the list by month (latest at the top)
+                    Collections.sort(marketingList, new Comparator<Marketing>() {
                         @Override
-                        public int compare(Meeting o1, Meeting o2) {
-                            return o2.getDate().compareTo(o1.getDate()); // latest date on top
+                        public int compare(Marketing o1, Marketing o2) {
+                            return Integer.compare(o2.getMonthAsNumber(), o1.getMonthAsNumber()); // latest month on top
                         }
                     });
 
                     // Initially show all data
                     filteredList.clear();
-                    filteredList.addAll(meetingList);
+                    filteredList.addAll(marketingList);
 
                     // Notify the adapter that the data has changed
                     adapter.notifyDataSetChanged();
@@ -128,24 +128,24 @@ public class MeettingListFragment extends Fragment {
 
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
-                    Log.e("MeetingListFragment", "Failed to retrieve data", databaseError.toException());
+                    Log.e("MarketingListFragment", "Failed to retrieve data", databaseError.toException());
                 }
             });
         } else {
-            Log.e("MeetingListFragment", "DatabaseReference is null");
+            Log.e("MarketingListFragment", "DatabaseReference is null");
         }
     }
 
-    // Filter meeting list based on search query
-    private void filterMeetingList(String query) {
+    // Filter marketing list based on search query
+    private void filterMarketingList(String query) {
         filteredList.clear();
         if (query.isEmpty()) {
-            filteredList.addAll(meetingList); // Show all data if the query is empty
+            filteredList.addAll(marketingList); // Show all data if the query is empty
         } else {
-            for (Meeting meeting : meetingList) {
-                if (meeting.getPersonName().toLowerCase().contains(query.toLowerCase()) ||
-                        meeting.getCompany().toLowerCase().contains(query.toLowerCase())) {
-                    filteredList.add(meeting); // Add the matching items to filtered list
+            for (Marketing marketing : marketingList) {
+                if (marketing.getStrategy().toLowerCase().contains(query.toLowerCase()) ||
+                        marketing.getMonth().toLowerCase().contains(query.toLowerCase())) {
+                    filteredList.add(marketing); // Add the matching items to filtered list
                 }
             }
         }
@@ -159,7 +159,7 @@ public class MeettingListFragment extends Fragment {
 
     // Method to dynamically set ListView height based on the number of items
     public static void setListViewHeightBasedOnChildren(ListView listView) {
-        MeetingAdapter adapter = (MeetingAdapter) listView.getAdapter();
+        MarketingAdapter adapter = (MarketingAdapter) listView.getAdapter();
         if (adapter == null) {
             return;
         }

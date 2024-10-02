@@ -46,7 +46,7 @@
                     android:id="@+id/textView2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Enquiry Details"
+                    android:text="Client Details"
                     android:textColor="@color/white"
                     android:textSize="24sp"
                     android:layout_marginTop="3dp"

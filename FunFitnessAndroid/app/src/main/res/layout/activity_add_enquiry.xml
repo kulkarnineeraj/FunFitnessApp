@@ -530,7 +530,7 @@
                     android:layout_marginTop="2dp"
                     app:boxStrokeColor="@color/dark_green"
                     app:hintTextColor="@color/dark_green"
-                    android:hint="Select Interest">
+                    android:hint="Select Interest(*)">
 
                     <AutoCompleteTextView
                         android:id="@+id/autoCompleteInterest"

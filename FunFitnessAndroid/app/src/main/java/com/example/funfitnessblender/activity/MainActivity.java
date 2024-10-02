@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     private RelativeLayout enquirycountRL;
     private DatabaseReference clientDatabaseReference;
 
-    private LinearLayout addEnquiryLL,adminLL,sessionLL,addSessionLL,addTransactionLL,enquiryListLL,transactionListLL,feesDueLL,meetingLL,joinedMemberLL,incomeReportLL;
+    private LinearLayout addEnquiryLL,adminLL,sessionLL,addSessionLL,addTransactionLL,enquiryListLL,transactionListLL,feesDueLL,meetingLL,joinedMemberLL,incomeReportLL,marketingLL;
     private ConstraintLayout  adminCL, reportsCL, CL5, CL6;
 
     @Override
@@ -163,6 +163,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, MeettingActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        marketingLL = findViewById(R.id.marketingLL);
+        marketingLL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MarketingActivity.class);
                 startActivity(intent);
             }
         });

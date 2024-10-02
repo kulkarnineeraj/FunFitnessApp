@@ -6,7 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -32,10 +34,12 @@ import java.util.Map;
 public class AddMeettingFragment extends Fragment {
 
     private TextInputEditText etDate, etPersonName, etCompanyName, etMotive, etResult;
-    private MaterialAutoCompleteTextView autoCompleteStatus, autoCompletePotential;
+    private AutoCompleteTextView autoCompleteStatus, autoCompletePotential;
     private Button btnSave;
 
     private DatabaseReference databaseReference;
+
+    private ImageView backBtn;
 
     public AddMeettingFragment() {
         // Required empty public constructor
@@ -76,6 +80,14 @@ public class AddMeettingFragment extends Fragment {
                 saveMeetingData();
             }
         });
+
+        backBtn = view.findViewById(R.id.backBtn);
+        backBtn.setOnClickListener(v -> {
+            if (getActivity() != null) {
+                getActivity().onBackPressed(); // Trigger back navigation
+            }
+        });
+
 
         return view;
     }

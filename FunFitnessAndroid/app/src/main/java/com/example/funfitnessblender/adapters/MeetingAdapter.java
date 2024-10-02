@@ -1,6 +1,7 @@
 package com.example.funfitnessblender.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import android.widget.ArrayAdapter;
 
+import com.example.funfitnessblender.DetailedMeetingActivity;
 import com.example.funfitnessblender.R;
 import com.example.funfitnessblender.models.Meeting;
 
@@ -45,6 +47,35 @@ public class MeetingAdapter extends ArrayAdapter<Meeting> {
             tvCompany.setText(meeting.getCompany());
         }
 
+        // Add click listener for the item
+        convertView.setOnClickListener(v -> {
+            Intent intent = new Intent(getContext(), DetailedMeetingActivity.class);
+            // Pass the meeting details via intent
+            intent.putExtra("meetingId", meeting.getMeetingId());
+            intent.putExtra("personName", meeting.getPersonName());
+            intent.putExtra("date", meeting.getDate());
+            intent.putExtra("company", meeting.getCompany());
+            intent.putExtra("status", meeting.getStatus());
+            intent.putExtra("potential", meeting.getPotential());
+            intent.putExtra("motive", meeting.getMotive());
+            intent.putExtra("result", meeting.getResult());
+            getContext().startActivity(intent);
+        });
+
         return convertView;
     }
+
+
+    public void updateList(List<Meeting> updatedList) {
+        this.meetings.clear();  // Clear the old list
+        this.meetings.addAll(updatedList);  // Add the new filtered list
+        notifyDataSetChanged();  // Refresh the adapter
+    }
+
+
+
+
+
+
+
 }
